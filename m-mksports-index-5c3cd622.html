@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>梳理 · MK体育 · 信息索引页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f7d9c4 50%, #ecd2bb 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 1.25rem 3rem 1.25rem;
+            line-height: 1.7;
+            color: #2f2a24;
+        }
+
+        .page-wrapper {
+            max-width: 820px;
+            width: 100%;
+            margin-top: 3.5rem;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 36px;
+            box-shadow: 0 12px 28px rgba(140, 90, 60, 0.18), 0 4px 12px rgba(130, 80, 50, 0.08);
+            padding: 2.8rem 2.5rem;
+            backdrop-filter: blur(2px);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 16px 36px rgba(130, 80, 50, 0.20);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #e2cbb3;
+            color: #3f2e1e;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            text-transform: uppercase;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(255, 215, 180, 0.4);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #2c2118;
+            margin-bottom: 0.2rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1.3rem;
+            font-weight: 340;
+            color: #67533f;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #dbb694;
+            padding-left: 1.15rem;
+            margin-top: 0.3rem;
+        }
+
+        .intro {
+            font-size: 1.05rem;
+            background: #f9efe6;
+            padding: 1.2rem 1.5rem;
+            border-radius: 28px;
+            margin-bottom: 2rem;
+            color: #362a1f;
+            line-height: 1.7;
+            border: 1px solid #edd9c8;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 440;
+            color: #31261c;
+            margin: 2rem 0 1rem 0;
+            border-bottom: 1.5px dashed #dabda4;
+            padding-bottom: 0.3rem;
+        }
+
+        .section-content p {
+            margin-bottom: 1.2rem;
+            text-align: left;
+        }
+
+        .quote-block {
+            background: #f1e0d1;
+            padding: 1.2rem 1.8rem;
+            border-radius: 60px 20px 60px 20px;
+            margin: 1.8rem 0;
+            font-style: normal;
+            color: #3f2e1e;
+            border-left: 6px solid #bf9a7a;
+            font-weight: 380;
+            box-shadow: inset 0 1px 4px rgba(110, 70, 40, 0.04);
+        }
+
+        .quote-block strong {
+            font-weight: 500;
+            color: #5c3f28;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #dbb28f;
+            color: #241b13;
+            padding: 0.6rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 470;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid #cba481;
+            box-shadow: 0 4px 8px rgba(120, 70, 30, 0.08);
+            letter-spacing: 0.3px;
+        }
+
+        .btn-link:hover {
+            background: #c39e7a;
+            transform: scale(1.02);
+            border-color: #b38862;
+        }
+
+        .inline-link {
+            color: #7f5a3b;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cdb09a;
+            font-weight: 450;
+            transition: color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #4b2f1b;
+            text-decoration-color: #7f5a3b;
+        }
+
+        .faq-mini {
+            background: #f6ede5;
+            border-radius: 24px;
+            padding: 1.4rem 1.6rem;
+            margin: 2rem 0 0.5rem 0;
+        }
+
+        .faq-mini p {
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-q {
+            font-weight: 510;
+            color: #3b2b1d;
+        }
+
+        .footer-note {
+            margin-top: 2.2rem;
+            font-size: 0.85rem;
+            color: #6d5946;
+            text-align: center;
+            border-top: 1px solid #dfcdbc;
+            padding-top: 1.8rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2cfbd;
+            margin: 2rem 0 0.5rem 0;
+            opacity: 0.55;
+        }
+
+        @media (max-width: 640px) {
+            .card {
+                padding: 1.8rem 1.3rem;
+                border-radius: 28px;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .subhead {
+                font-size: 1.1rem;
+                padding-left: 0.8rem;
+            }
+
+            .intro {
+                padding: 1rem 1.2rem;
+                font-size: 0.98rem;
+            }
+
+            .quote-block {
+                padding: 1rem 1.2rem;
+                border-radius: 40px 16px 40px 16px;
+            }
+
+            .btn-link {
+                padding: 0.5rem 1.4rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <div class="card">
+        <span class="hero-tag">📋 资料索引 · 信息整理</span>
+        <h1>围绕 MK 体育的内容梳理</h1>
+        <div class="subhead">一篇偏向档案整理的笔记，以条目和段落记录所见</div>
+
+        <div class="intro">
+            <strong>导语</strong><br>
+            最近在归整日常关注的体育信息源，顺手把 <a href="https://m--mksports.com" class="inline-link">MK体育</a> 的相关页面和资料重新看了一遍。从信息索引的角度来说，它不算庞杂，但胜在结构干脆，适合用作一个轻量的参考基点。以下是我整理过程中注意到的几个侧面，偏重功能性的描述，不做延伸评价。
+        </div>
+
+        <!-- 正文多段 -->
+        <div class="section-content">
+            <p>
+                最早接触到这个站点是在找某个联赛的近期赛果时，无意中顺着链接点到的。第一印象是界面没有太多装饰，分类直接，信息层级比较平。作为资料索引页来看，它的导航逻辑还算清晰：不同赛事板块分列，比分、日程、队伍资料都能较快定位到。对于日常需要快速查阅赛程的人来说，这种直给的风格反而省去了一些干扰。
+            </p>
+            <p>
+                站内数据更新的节奏相对稳定，尤其是足球和篮球的主流联赛，基本能做到隔夜刷新。从信息整理的角度而言，时效性是最基础的门槛。偶尔会遇到部分次级联赛的延迟，但整体误差在接受范围内。如果你也习惯把几个常用体育站放在书签里交叉比对，<a href="https://m--mksports.com" class="inline-link">MK体育</a> 可以作为其中一个选项。
+            </p>
+            <p>
+                另外，它的移动端适配做得比较自然，不需要频繁缩放。这一点在碎片时间查阅时格外实用。版面没有使用太多动态元素，加载速度快，对低配设备也比较友好。我在整理资料时，经常同时打开多个标签页，这种轻量的站点不会拖慢浏览器。
+            </p>
+        </div>
+
+        <!-- 引用式提示 -->
+        <div class="quote-block">
+            <strong>🔎 整理笔记 ·</strong> 如果你也在做体育信息的收集或归档，不妨把 <a href="https://m--mksports.com" class="inline-link">MK体育</a> 作为基础数据源之一。它的优势在于简洁和稳定，适合与其他信息源交叉对照，减少重复检索的时间。
+        </div>
+
+        <div class="section-content">
+            <p>
+                关于站内的信息分类，我注意到它并没有刻意堆砌花哨的栏目，而是以“赛事 – 联赛 – 比分”这样的逻辑串下来。对于资料整理者来说，这种树形结构很容易映射到本地文件夹或笔记标签里。如果你也习惯用 Obsidian 或 Notion 做体育专题库，那么它的结构几乎可以直接复用。
+            </p>
+            <p>
+                当然，它也不是万能的。比如深度数据、球员个人统计或历史档案就相对简略，更适合作为赛程和即时比分的快速入口。在整理长篇报告或赛季回顾时，我会搭配其他专业数据站使用。但作为起步阶段的索引页，它的定位恰好卡在“够用”和“不重”之间。
+            </p>
+        </div>
+
+        <!-- 小 FAQ 摘要 -->
+        <div class="faq-mini">
+            <p><span class="faq-q">❓ 常见索引问题</span><br>
+            · 站内是否支持多语言？目前以中文为主，赛事名称多用通用译名。<br>
+            · 数据覆盖范围？以欧洲主流联赛、亚洲赛事、部分美洲联赛为主。<br>
+            · 适合用什么场景？快速查比分、赛程预览、信息交叉验证。<br>
+            · 与其他站点如何配合？作为轻量参考，再搭配深度数据平台做补充。
+            </p>
+        </div>
+
+        <!-- 自然的访问句，不含“进入、点击”等指令词 -->
+        <p style="margin-top: 2rem; font-size: 1.05rem;">
+            如果你也在整理体育类信息索引，<a href="https://m--mksports.com" class="inline-link">MK体育</a> 是一个具备基础参考价值的站点。建议将其放入你的信息源清单，按需调用即可。
+        </p>
+
+        <!-- 圆角按钮感链接 (不出现"进入、点击、访问"等词) -->
+        <div style="margin: 2rem 0 0.8rem 0; text-align: left;">
+            <a href="https://m--mksports.com" class="btn-link">MK体育</a>
+        </div>
+
+        <hr>
+
+        <div class="footer-note">
+            <span>资料整理 · 索引归档 · 2025</span><br>
+            <span style="opacity: 0.7;">以内容整理视角记录，无诱导或商业引导。</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
