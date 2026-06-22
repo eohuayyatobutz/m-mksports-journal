@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>竞彩网 · 信息导航</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', Helvetica, Arial, sans-serif;
+      background: #f5f0eb;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 2rem 1.2rem;
+    }
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    /* 主视觉卡片 */
+    .hero-card {
+      background: white;
+      border-radius: 36px 12px 36px 12px;
+      padding: 3rem 2rem 2.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      margin-bottom: 2.8rem;
+      position: relative;
+      border: 1px solid rgba(210, 190, 175, 0.2);
+    }
+    .hero-card::before {
+      content: "✦";
+      position: absolute;
+      top: 1.2rem;
+      right: 1.6rem;
+      font-size: 1.8rem;
+      color: #c7ac93;
+      opacity: 0.5;
+      transform: rotate(8deg);
+    }
+    .hero-card h1 {
+      font-size: 2.2rem;
+      font-weight: 530;
+      letter-spacing: -0.02em;
+      color: #2a231e;
+      margin-bottom: 0.6rem;
+    }
+    .hero-card .sub {
+      font-size: 1.05rem;
+      color: #6f6258;
+      border-left: 3px solid #dac1ad;
+      padding-left: 1rem;
+      margin: 0.8rem 0 1.6rem;
+    }
+    .hero-text {
+      font-size: 1rem;
+      color: #3e3832;
+    }
+    .hero-text a {
+      color: #7a5f4a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #dac1ad;
+      font-weight: 500;
+    }
+    .hero-text a:hover {
+      color: #4a382b;
+      text-decoration-color: #b3957b;
+    }
+
+    /* 用途卡片 — 两列网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2.8rem;
+    }
+    .card-item {
+      background: white;
+      border-radius: 20px;
+      padding: 1.8rem 1.4rem 1.6rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      border: 1px solid #ede5dd;
+    }
+    .card-item h3 {
+      font-weight: 520;
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+      color: #382f28;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .card-item h3 span {
+      font-size: 1.3rem;
+      margin-right: 0.1rem;
+    }
+    .card-item p {
+      font-size: 0.94rem;
+      color: #504842;
+      margin-top: 0.1rem;
+    }
+
+    /* 适合人群 + 引用块 */
+    .audience-section {
+      background: #ffffffeb;
+      border-radius: 28px;
+      padding: 2rem 2rem 2.2rem;
+      margin-bottom: 2.5rem;
+      border-left: 6px solid #dac1ad;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .audience-section h2 {
+      font-weight: 530;
+      font-size: 1.3rem;
+      letter-spacing: 0.01em;
+      color: #342d27;
+      margin-bottom: 1rem;
+    }
+    .audience-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      margin-top: 0.2rem;
+    }
+    .audience-tags span {
+      background: #f0e8e0;
+      padding: 0.25rem 1rem 0.25rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.92rem;
+      color: #3d352e;
+      border: 1px solid #e2d3c5;
+    }
+    .audience-note {
+      margin-top: 1.3rem;
+      font-size: 0.96rem;
+      background: #f8f3ed;
+      padding: 1rem 1.4rem;
+      border-radius: 18px;
+      color: #4b423b;
+      border-left: 3px solid #c3a990;
+    }
+
+    /* 自然链接段落 + 提示框 */
+    .link-block {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 2rem 1.8rem;
+      margin-bottom: 2.2rem;
+      border: 1px solid #e6dbd1;
+    }
+    .link-block p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .link-block a {
+      color: #7a5f4a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #cbb6a2;
+      font-weight: 500;
+    }
+    .link-block a:hover {
+      color: #4f3d2e;
+      text-decoration-color: #a7876e;
+    }
+    .tip-box {
+      background: #f3ede6;
+      border-radius: 24px;
+      padding: 1.2rem 1.6rem;
+      margin-top: 1.2rem;
+      font-size: 0.96rem;
+      color: #4b3f37;
+      border: 1px solid #e1d3c6;
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+    .tip-box::before {
+      content: "ⓘ";
+      font-size: 1.3rem;
+      color: #b3957b;
+      line-height: 1.3;
+      flex-shrink: 0;
+    }
+
+    /* FAQ 摘要 */
+    .faq-mini {
+      background: #faf6f1;
+      border-radius: 28px;
+      padding: 1.6rem 2rem 1.8rem;
+      margin-top: 1.5rem;
+      border: 1px solid #e3d7cc;
+    }
+    .faq-mini h3 {
+      font-weight: 520;
+      font-size: 1.1rem;
+      margin-bottom: 0.8rem;
+      color: #362e27;
+    }
+    .faq-item {
+      margin-bottom: 0.7rem;
+    }
+    .faq-item strong {
+      font-weight: 520;
+      color: #4f3f33;
+      display: block;
+      margin-bottom: 0.1rem;
+      font-size: 0.98rem;
+    }
+    .faq-item p {
+      font-size: 0.92rem;
+      color: #5b5149;
+      padding-left: 0.6rem;
+      border-left: 2px solid #dac1ad;
+      padding-left: 0.8rem;
+      margin-top: 0.1rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 580px) {
+      body {
+        padding: 1.4rem 0.8rem;
+      }
+      .hero-card {
+        padding: 2rem 1.2rem 1.8rem;
+      }
+      .hero-card h1 {
+        font-size: 1.7rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .audience-section {
+        padding: 1.6rem 1.2rem;
+      }
+      .link-block {
+        padding: 1.5rem 1.2rem;
+      }
+      .faq-mini {
+        padding: 1.2rem 1.2rem;
+      }
+      .hero-card::before {
+        font-size: 1.4rem;
+        top: 0.8rem;
+        right: 1rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .hero-card h1 {
+        font-size: 1.5rem;
+      }
+      .audience-tags span {
+        font-size: 0.82rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+  <!-- 主视觉卡片 -->
+  <div class="hero-card">
+    <h1>竞彩 · 信息页</h1>
+    <div class="sub">一个关于站点背景与定位的简单说明</div>
+    <div class="hero-text">
+      <p>如果你平时会留意体育赛事相关的信息平台，或许听说过 <a href="https://portalzh-jingcai.com">竞彩网</a> —— 它更像一个内容聚合式的信息出口，提供赛前数据、比赛动态和彩市相关资讯。本站从使用场景出发，整理了一些值得了解的特点。</p>
+    </div>
+  </div>
+
+  <!-- 用途卡片 两列 -->
+  <div class="card-grid">
+    <div class="card-item">
+      <h3><span>📋</span> 实时数据参考</h3>
+      <p>涵盖主流联赛的盘口、赔率变动、交锋历史等基础数据模块，适合赛前快速浏览。</p>
+    </div>
+    <div class="card-item">
+      <h3><span>📰</span> 资讯聚合</h3>
+      <p>收录球队近况、伤病名单、赛前发布会内容，尽量保持信息密度，不做过度解读。</p>
+    </div>
+    <div class="card-item">
+      <h3><span>🧭</span> 导航与工具</h3>
+      <p>提供竞彩计算器、过关玩法说明、奖金试算等轻量工具，辅助理性决策。</p>
+    </div>
+    <div class="card-item">
+      <h3><span>🔒</span> 基础可信说明</h3>
+      <p>所有展示数据均来源于公开赛事统计及授权数据接口，不包含任何诱导性分析。</p>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 引用块 -->
+  <div class="audience-section">
+    <h2>适合哪些人使用</h2>
+    <div class="audience-tags">
+      <span>⚽ 体育爱好者</span>
+      <span>📊 数据参考型用户</span>
+      <span>🧑‍💻 赛前信息收集者</span>
+      <span>📆 长期关注彩市动态的人</span>
+    </div>
+    <div class="audience-note">
+      如果你只是偶尔关心比赛结果，或者希望有一个不太花哨的地方看看数据变化，这个站点可以当作一个安静的参考角落。当然，任何平台都无法替代独立判断，保持理性始终是第一位。
+    </div>
+  </div>
+
+  <!-- 自然链接段落 + 提示框 -->
+  <div class="link-block">
+    <p>关于站点的更多细节，或者想直接看看它的内容结构，可以前往 <a href="https://portalzh-jingcai.com">竞彩网</a> 慢慢浏览。页面本身不设强制跳转，也没有弹窗干扰，整体偏向工具属性。</p>
+    <p>需要提醒的是，所有资讯类内容均存在时效性，建议结合多个信源交叉验证。站点团队也会定期更新数据接口，不过偶尔会有延迟，请以官方赛程为准。</p>
+    <div class="tip-box">
+      提示：本站不含任何形式的“稳赚”“必中”承诺，也不引导用户进行非理性操作。如果你遇到任何异常信息，可以留意页面底部的相关说明。
+    </div>
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-mini">
+    <h3>常见疑问 · 简短说明</h3>
+    <div class="faq-item">
+      <strong>Q：数据更新频率如何？</strong>
+      <p>主流联赛的赔率和赛果通常在比赛结束后的 5–15 分钟内更新，小联赛可能会有几小时的延迟。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q：是否需要注册才能浏览？</strong>
+      <p>不需要。目前所有公开信息页面均可直接访问，未强制要求登录或绑定手机号。</p>
+    </div>
+    <div class="faq-item">
+      <strong>Q：是否提供历史数据导出？</strong>
+      <p>暂时没有批量导出功能，但页面保留了近 3 个月的基础赛事数据，可以直接查看。</p>
+    </div>
+    <div class="faq-item" style="margin-bottom:0;">
+      <strong>Q：遇到显示异常怎么办？</strong>
+      <p>可以尝试清理浏览器缓存或更换网络环境。大部分兼容性问题集中在旧版浏览器上。</p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
